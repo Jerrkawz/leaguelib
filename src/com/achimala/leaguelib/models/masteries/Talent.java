@@ -59,6 +59,9 @@ public class Talent {
 	}
 
 	
-	
+	public String toString()
+	{
+		return _name + "(" + _id + "): " + _rank; 
+	}
 
 }

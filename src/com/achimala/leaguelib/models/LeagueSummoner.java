@@ -16,11 +16,13 @@
 
 package com.achimala.leaguelib.models;
 
-import com.achimala.leaguelib.connection.LeagueServer;
-import com.gvaneyck.rtmp.TypedObject;
-import java.util.List;
-import java.util.Comparator;
 import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+import com.achimala.leaguelib.connection.LeagueServer;
+import com.achimala.leaguelib.models.masteries.MasteryBook;
+import com.gvaneyck.rtmp.TypedObject;
 
 public class LeagueSummoner {
     private int _id=-1, _accountId=-1;
@@ -32,6 +34,8 @@ public class LeagueSummoner {
     LeagueSummonerLeagueStats _leagueStats;
     LeagueSummonerRankedStats _rankedStats;
     List<MatchHistoryEntry> _matchHistory;
+    MasteryBook _masteryBook;
+    
     LeagueGame _activeGame;
     
     public LeagueSummoner() {
@@ -190,5 +194,13 @@ public class LeagueSummoner {
     
     public boolean isEqual(Object other) {
         return (other instanceof LeagueSummoner && ((LeagueSummoner)other).getId() == _id);
+    }
+    
+    public void setMasteryBook(MasteryBook book){
+    	_masteryBook = book;
+    }
+    
+    public MasteryBook getMasteryBook(){
+    	return _masteryBook;
     }
 }

@@ -23,22 +23,23 @@ public class MasteryService extends LeagueAbstractService {
 		return "masteryBookService";
 	}
 	
-    public MasteryBook getMasteryBook(LeagueSummoner summoner) throws LeagueException 
+    public void fillMasteryBook(LeagueSummoner summoner) throws LeagueException 
     {
         TypedObject obj = call("getMasteryBook", new Object[] { summoner.getId() });
-        return new MasteryBook(obj.getTO("body"));
+        summoner.setMasteryBook(new MasteryBook(obj.getTO("body")));
 
     }
     
-    public void getMasteryBook(LeagueSummoner summoner, final Callback<MasteryBook> callback)
+    public void fillMasteryBook(final LeagueSummoner summoner, final Callback<LeagueSummoner> callback)
     {
     	callAsynchronously("getMasteryBook", new Object[] { summoner.getId()}, new Callback<TypedObject>(){
 
 			@Override
 			public void onCompletion(TypedObject result) {
-				callback.onCompletion(new MasteryBook(result.getTO("body")));
+				summoner.setMasteryBook(new MasteryBook(result.getTO("body")));
+				callback.onCompletion(summoner);
 			}
-			//test
+			
 			@Override
 			public void onError(Exception ex) {
 				callback.onError(ex);

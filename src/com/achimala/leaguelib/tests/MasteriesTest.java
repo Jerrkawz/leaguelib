@@ -7,7 +7,6 @@ import com.achimala.leaguelib.connection.LeagueConnection;
 import com.achimala.leaguelib.connection.LeagueServer;
 import com.achimala.leaguelib.errors.LeagueException;
 import com.achimala.leaguelib.models.LeagueSummoner;
-import com.achimala.leaguelib.models.masteries.MasteryBook;
 
 
 public class MasteriesTest {
@@ -25,8 +24,8 @@ public class MasteriesTest {
 	    }
 	    
 	    LeagueSummoner s = c.getSummonerService().getSummonerByName("jerrkawz");
-	    MasteryBook book = c.getMasteryService().getMasteryBook(s);
+	    c.getMasteryService().fillMasteryBook(s);
 	    
-	    System.out.println(book);
+	    System.out.println("");
 	}
 }
