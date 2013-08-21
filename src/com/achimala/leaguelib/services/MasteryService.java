@@ -38,7 +38,7 @@ public class MasteryService extends LeagueAbstractService {
 			public void onCompletion(TypedObject result) {
 				callback.onCompletion(new MasteryBook(result.getTO("body")));
 			}
-
+			//test
 			@Override
 			public void onError(Exception ex) {
 				callback.onError(ex);
