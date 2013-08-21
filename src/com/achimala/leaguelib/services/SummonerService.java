@@ -16,13 +16,16 @@
 
 package com.achimala.leaguelib.services;
 
-import com.achimala.leaguelib.connection.*;
-import com.achimala.leaguelib.models.*;
-import com.achimala.leaguelib.errors.*;
+import java.util.Arrays;
+
+import com.achimala.leaguelib.connection.LeagueConnection;
+import com.achimala.leaguelib.errors.LeagueErrorCode;
+import com.achimala.leaguelib.errors.LeagueException;
+import com.achimala.leaguelib.models.LeagueSummoner;
+import com.achimala.leaguelib.models.LeagueSummonerProfileInfo;
+import com.achimala.leaguelib.models.runes.RuneBook;
 import com.achimala.util.Callback;
 import com.gvaneyck.rtmp.TypedObject;
-
-import java.util.Arrays;
 
 public class SummonerService extends LeagueAbstractService {
     public SummonerService(LeagueConnection connection) {
@@ -110,6 +113,7 @@ public class SummonerService extends LeagueAbstractService {
     public void fillPublicSummonerData(LeagueSummoner summoner) throws LeagueException {
         TypedObject obj = call("getAllPublicSummonerDataByAccount", new Object[] { summoner.getAccountId() });
         summoner.setProfileInfo(new LeagueSummonerProfileInfo(obj.getTO("body").getTO("summoner")));
+        summoner.setRuneBook(new RuneBook(obj.getTO("body")));
     }
     
     public void fillPublicSummonerData(final LeagueSummoner summoner, final Callback<LeagueSummoner> callback) {
@@ -117,6 +121,7 @@ public class SummonerService extends LeagueAbstractService {
             public void onCompletion(TypedObject obj) {
                 try {
                     summoner.setProfileInfo(new LeagueSummonerProfileInfo(obj.getTO("body").getTO("summoner")));
+                    summoner.setRuneBook(new RuneBook(obj.getTO("body")));
                     callback.onCompletion(summoner);
                 } catch(Exception ex) {
                     callback.onError(ex);

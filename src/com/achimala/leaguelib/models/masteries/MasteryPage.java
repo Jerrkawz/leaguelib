@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.gvaneyck.rtmp.TypedObject;
 
-public class MasteryBookPage {
+public class MasteryPage {
 
-	public MasteryBookPage(TypedObject page) {
+	public MasteryPage(TypedObject page) {
 		_current = page.getBool("current");
 		_name = page.getString("name");
 		
@@ -36,5 +36,36 @@ public class MasteryBookPage {
 	private boolean _current = false;
 	private String _name;
 	
+	public List<Talent> getAllMasteries()
+	{
+		List<Talent> list = new ArrayList<Talent>();
+		list.addAll(_offense);
+		list.addAll(_defense);
+		list.addAll(_utility);
+		
+		return list;
+	}
 	
+	public List<Talent> getOffense()
+	{
+		return _offense;
+	}
+	public List<Talent> getDefense()
+	{
+		return _defense;
+	}
+	public List<Talent> getUtility()
+	{
+		return _utility;
+	}
+	
+	public boolean isCurrent()
+	{
+		return _current;
+	}
+	
+	public String getName()
+	{
+		return _name;
+	}
 }

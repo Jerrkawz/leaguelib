@@ -3,13 +3,11 @@ package com.achimala.leaguelib.models.masteries;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.achimala.leaguelib.models.LeagueSummoner;
 import com.gvaneyck.rtmp.TypedObject;
 
 public class MasteryBook {
 
-	private List<MasteryBookPage> _pages = new ArrayList<MasteryBookPage>();
-	private LeagueSummoner _summoner;
+	private List<MasteryPage> _pages = new ArrayList<MasteryPage>();
 	
 	public MasteryBook (TypedObject data) {
 		
@@ -18,8 +16,24 @@ public class MasteryBook {
 		for (Object pageObject : objects)
 		{
 			TypedObject page = (TypedObject) pageObject;
-			_pages.add(new MasteryBookPage(page));
+			_pages.add(new MasteryPage(page));
 		}
 		
 	}
+	
+	public List<MasteryPage> getAllPages()
+	{
+		return _pages;
+	}
+	
+	public MasteryPage getCurrentPage()
+	{
+		for (MasteryPage page : _pages)
+		{
+			if (page.isCurrent()) return page;
+		}
+		
+		return null;
+	}
+	
 }

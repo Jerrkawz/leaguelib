@@ -22,6 +22,7 @@ import java.util.List;
 
 import com.achimala.leaguelib.connection.LeagueServer;
 import com.achimala.leaguelib.models.masteries.MasteryBook;
+import com.achimala.leaguelib.models.runes.RuneBook;
 import com.gvaneyck.rtmp.TypedObject;
 
 public class LeagueSummoner {
@@ -35,7 +36,7 @@ public class LeagueSummoner {
     LeagueSummonerRankedStats _rankedStats;
     List<MatchHistoryEntry> _matchHistory;
     MasteryBook _masteryBook;
-    
+    RuneBook _runeBook;
     LeagueGame _activeGame;
     
     public LeagueSummoner() {
@@ -202,5 +203,14 @@ public class LeagueSummoner {
     
     public MasteryBook getMasteryBook(){
     	return _masteryBook;
+    }
+    
+    public void setRuneBook(RuneBook book){
+    	_runeBook = book;
+    }
+    
+    public RuneBook getRuneBook()
+    {
+    	return _runeBook;
     }
 }
