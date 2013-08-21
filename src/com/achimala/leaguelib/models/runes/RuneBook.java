@@ -1,6 +1,7 @@
 package com.achimala.leaguelib.models.runes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.gvaneyck.rtmp.TypedObject;
 
@@ -27,5 +28,17 @@ bookpages[0] > rune > itemEffects >
 			RunePage page = new RunePage((TypedObject) bpObject);
 			_pages.add(page);
 		}
+	}
+	
+	public RunePage getCurrentPage() {
+		for (RunePage page : _pages) {
+			if (page.isCurrent()) return page;
+		}
+		
+		return null;
+	}
+	
+	public List<RunePage> getRunePages(){
+		return _pages;
 	}
 }
