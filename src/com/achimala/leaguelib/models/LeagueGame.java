@@ -16,13 +16,14 @@
 
 package com.achimala.leaguelib.models;
 
-import com.gvaneyck.rtmp.TypedObject;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Comparator;
-import java.util.Arrays;
+
+import com.gvaneyck.rtmp.TypedObject;
 
 public class LeagueGame implements PlayerList {
     private class ObserverCredentials {
@@ -106,6 +107,10 @@ public class LeagueGame implements PlayerList {
             TypedObject to = (TypedObject)o;
             _playerChampionSelections.put(to.getString("summonerInternalName"), 
 					  LeagueChampion.getChampionWithId(to.getInt("championId")));
+            LeagueSummoner summoner = _summoners.get(to.getString("summonerInternalName"));
+            int s1 = to.getInt("spell1Id");
+            int s2 = to.getInt("spell2Id");
+            summoner.setSummonerSpells(SummonerSpell.getSpellById(s1),SummonerSpell.getSpellById(s2));
         }
 	_bannedChampions = new HashMap<TeamType, List<LeagueChampion>>();
 	for(TeamType t : TeamType.values()) {

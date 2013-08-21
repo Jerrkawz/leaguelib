@@ -38,6 +38,7 @@ public class LeagueSummoner {
     MasteryBook _masteryBook;
     RuneBook _runeBook;
     LeagueGame _activeGame;
+    SummonerSpell _summonerSpell1,_summonerSpell2;
     
     public LeagueSummoner() {
         _profileInfo = new LeagueSummonerProfileInfo();
@@ -212,5 +213,18 @@ public class LeagueSummoner {
     public RuneBook getRuneBook()
     {
     	return _runeBook;
+    }
+    
+    public void setSummonerSpells(SummonerSpell s1, SummonerSpell s2) {
+    	_summonerSpell1 = s1;
+    	_summonerSpell2 = s2;
+    }
+    
+    public SummonerSpell getSummonerSpell1() {
+    	return _summonerSpell1;
+    }
+    
+    public SummonerSpell getSummonerSpell2() {
+    	return _summonerSpell2;
     }
 }

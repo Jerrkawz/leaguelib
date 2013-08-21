@@ -16,9 +16,11 @@
 
 package com.achimala.leaguelib.services;
 
-import com.achimala.leaguelib.connection.*;
-import com.achimala.leaguelib.models.*;
-import com.achimala.leaguelib.errors.*;
+import com.achimala.leaguelib.connection.LeagueConnection;
+import com.achimala.leaguelib.errors.LeagueErrorCode;
+import com.achimala.leaguelib.errors.LeagueException;
+import com.achimala.leaguelib.models.LeagueGame;
+import com.achimala.leaguelib.models.LeagueSummoner;
 import com.achimala.util.Callback;
 import com.gvaneyck.rtmp.TypedObject;
 
@@ -47,7 +49,9 @@ public class GameService extends LeagueAbstractService {
             summoner.setActiveGame(null);
         else {
             LeagueGame game = new LeagueGame(obj.getTO("body"), summoner);
-            summoner.setActiveGame(game);
+          	for (LeagueSummoner s: game.getAllPlayers())
+          		s.setActiveGame(game);
+          	summoner.setActiveGame(game);
         }
     }
     
