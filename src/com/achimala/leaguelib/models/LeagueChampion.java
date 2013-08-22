@@ -16,9 +16,9 @@
 
 package com.achimala.leaguelib.models;
 
-import com.achimala.leaguelib.models.LeagueChampion;
-import com.achimala.util.BidirectionalMap;
 import java.util.HashMap;
+
+import com.achimala.util.BidirectionalMap;
 
 public class LeagueChampion {
     private static BidirectionalMap<Integer, String> _modelMap;
@@ -141,6 +141,7 @@ public class LeagueChampion {
         _modelMap.put(154, "Zac");
         _modelMap.put(127, "Lissandra");
         _modelMap.put(266, "Aatrox");
+        _modelMap.put(236, "Lucian");
         
         _champMap = new HashMap<Integer, LeagueChampion>();
     }
