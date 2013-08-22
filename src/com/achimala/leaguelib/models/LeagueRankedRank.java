@@ -21,8 +21,7 @@ public enum LeagueRankedRank {
     II(3),
     III(2),
     IV(1),
-    V(0),
-    U(-1); //Unranked
+    V(0);
     
     private static final double WEIGHT = 70.;
     private int _value;
