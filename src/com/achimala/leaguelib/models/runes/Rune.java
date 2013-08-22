@@ -475,4 +475,9 @@ public enum Rune {
     {
     	return _runeType;
     }
+    
+    public int getId()
+    {
+    	return _id;
+    }
 }

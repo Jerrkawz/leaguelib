@@ -7,6 +7,7 @@ import com.achimala.leaguelib.connection.LeagueConnection;
 import com.achimala.leaguelib.connection.LeagueServer;
 import com.achimala.leaguelib.errors.LeagueException;
 import com.achimala.leaguelib.models.LeagueSummoner;
+import com.achimala.leaguelib.models.LeagueSummonerRankedStats;
 
 
 public class MasteriesTest {
@@ -23,9 +24,9 @@ public class MasteriesTest {
 	        return;
 	    }
 	    
-	    LeagueSummoner s = c.getSummonerService().getSummonerByName("jerrkawz");
-	    c.getMasteryService().fillMasteryBook(s);
-	    
+	    LeagueSummoner s = c.getSummonerService().getSummonerByName("jman2807");
+	    c.getPlayerStatsService().fillRankedStats(s);
+	    LeagueSummonerRankedStats stats = s.getRankedStats();
 	    System.out.println("");
 	}
 }
