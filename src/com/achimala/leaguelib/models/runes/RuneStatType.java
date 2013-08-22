@@ -70,7 +70,7 @@ public enum RuneStatType {
         if(amount == (int)amount)
             n += (int)amount;
         else
-            n += amount;
+            n += String.format("%.2f",amount);
         if(!_flat)
             n += "%";
         return String.format("%s %s", n, _unit);
