@@ -26,17 +26,24 @@ public class RunePage {
 		
 		for (Object entry : entries)
 		{
-			Rune rune = new Rune((TypedObject) entry);
-			int slotId = rune.getSlotId();
+			int runeId = ((TypedObject) entry).getInt("runeId");
+			Rune rune = Rune.getRuneWithId(runeId);
 			
-			if (slotId <= 9)
+			switch (rune.getRuneType()){
+			
+			case MARK:
 				_marks.add(rune);
-			else if (slotId > 9 && slotId <= 18)
+				break;
+			case SEAL:
 				_seals.add(rune);
-			else if (slotId > 18 && slotId <= 27)
+				break;
+			case GLYPH:
 				_glyphs.add(rune);
-			else
+				break;
+			case QUINTESSENCE:
 				_quints.add(rune);
+				break;
+			}
 		}
 	}
 	
