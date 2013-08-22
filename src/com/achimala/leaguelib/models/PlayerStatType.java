@@ -16,23 +16,10 @@
 
 package com.achimala.leaguelib.models;
 
-public enum LeagueMatchmakingQueue {
-    NONE,
-    BOT,
-    BOT_3x3,
-    CAP_1x1,
-    CAP_5x5,
-    NORMAL,
-    NORMAL_3x3,
-    ODIN_UNRANKED,
-    UNRANKED,
-    UNRANKED_3x3,
-    RANKED_SOLO_5x5,
-    RANKED_TEAM_3x3,
-    RANKED_TEAM_5x5,
-    ARAM_UNRANKED_1x1,
-    ARAM_UNRANKED_2x2,
-    ARAM_UNRANKED_3x3,
-    ARAM_UNRANKED_5x5,
-    ARAM_UNRANKED_6x6
+public enum PlayerStatType {
+    WINS,
+    LOSSES,
+    LEAVES,
+    RATING,
+    MAX_RATING
 }

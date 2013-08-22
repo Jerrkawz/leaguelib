@@ -34,6 +34,7 @@ public class LeagueSummoner {
     LeagueSummonerProfileInfo _profileInfo;
     LeagueSummonerLeagueStats _leagueStats;
     LeagueSummonerRankedStats _rankedStats;
+    LeagueSummonerPlayerStats _playerStats;
     List<MatchHistoryEntry> _matchHistory;
     MasteryBook _masteryBook;
     RuneBook _runeBook;
@@ -109,6 +110,10 @@ public class LeagueSummoner {
         _rankedStats = stats;
     }
     
+    public void setPlayerStats(LeagueSummonerPlayerStats stats) {
+    	_playerStats = stats;
+    }
+    
     public void setMatchHistory(List<MatchHistoryEntry> matchHistory) {
         _matchHistory = matchHistory;
         Collections.sort(_matchHistory, new Comparator() {
@@ -166,6 +171,10 @@ public class LeagueSummoner {
     
     public LeagueSummonerRankedStats getRankedStats() {
         return _rankedStats;
+    }
+    
+    public LeagueSummonerPlayerStats getPlayerStats() {
+    	return _playerStats;
     }
     
     public List<MatchHistoryEntry> getMatchHistory() {
