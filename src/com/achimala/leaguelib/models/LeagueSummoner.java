@@ -70,7 +70,6 @@ public class LeagueSummoner {
             _accountId = obj.getInt(isGamePlayer ? "accountId" : "acctId");
             _profileIconId = obj.getInt("profileIconId");
             _server = server;
-            _lastSelectedSkin = obj.getInt("lastSelectedSkinIndex");
             if(!isGamePlayer)
                 _level = obj.getInt("summonerLevel");
         }

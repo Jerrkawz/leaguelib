@@ -80,6 +80,7 @@ public class LeagueGame implements PlayerList {
         for(Object o : team) {
             TypedObject to = (TypedObject)o;
             LeagueSummoner sum = new LeagueSummoner(to, primarySummoner.getServer(), true);
+            sum.setLastSelectedSkin(to.getInt("lastSelectedSkinIndex"));
             if(sum.isEqual(primarySummoner))
                 sum = primarySummoner;
             _summoners.put(sum.getInternalName(), sum);
