@@ -19,6 +19,9 @@ package com.achimala.leaguelib.models;
 public enum PlayerStatSummaryType {
     CAP1x1,
     CAP5x5,
+    CoopVsAI,
+    CoopVsAI3x3,
+    CoopVsAI5x5,
     OdinUnranked,
     Unranked,
     Unranked3x3,
