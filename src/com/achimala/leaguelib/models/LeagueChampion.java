@@ -166,6 +166,7 @@ public class LeagueChampion {
     
     private String _name;
     private int _id;
+    private int _skinIndex;
     
     private LeagueChampion(String name) {
         _name = name;
@@ -196,6 +197,15 @@ public class LeagueChampion {
     public String toString() {
         return "<Champion " + _name + "(#" + _id + ")>";
     }
+
+	public LeagueChampion setSkinIndex(int index) {
+		_skinIndex = index;
+		return this;
+	}
+	
+	public int getSkinIndex() {
+		return _skinIndex;
+	}
     
     // public String getFilename() {
     //     return getName().toLowerCase().replaceAll("[^a-z0-9]", "");

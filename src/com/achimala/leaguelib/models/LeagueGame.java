@@ -105,11 +105,13 @@ public class LeagueGame implements PlayerList {
         _playerChampionSelections = new HashMap<String, LeagueChampion>();
         for(Object o : obj.getArray("playerChampionSelections")) {
             TypedObject to = (TypedObject)o;
+            int skinIndex = to.getInt("selectedSkinIndex");
             _playerChampionSelections.put(to.getString("summonerInternalName"), 
-					  LeagueChampion.getChampionWithId(to.getInt("championId")));
+					  LeagueChampion.getChampionWithId(to.getInt("championId")).setSkinIndex(skinIndex));
             LeagueSummoner summoner = _summoners.get(to.getString("summonerInternalName"));
             int s1 = to.getInt("spell1Id");
             int s2 = to.getInt("spell2Id");
+           
             summoner.setSummonerSpells(SummonerSpell.getSpellById(s1),SummonerSpell.getSpellById(s2));
         }
 	_bannedChampions = new HashMap<TeamType, List<LeagueChampion>>();
