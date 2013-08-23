@@ -40,6 +40,7 @@ public class LeagueSummoner {
     RuneBook _runeBook;
     LeagueGame _activeGame;
     SummonerSpell _summonerSpell1,_summonerSpell2;
+    private int _lastSelectedSkin = 0;
     
     public LeagueSummoner() {
         _profileInfo = new LeagueSummonerProfileInfo();
@@ -69,6 +70,7 @@ public class LeagueSummoner {
             _accountId = obj.getInt(isGamePlayer ? "accountId" : "acctId");
             _profileIconId = obj.getInt("profileIconId");
             _server = server;
+            _lastSelectedSkin = obj.getInt("lastSelectedSkinIndex");
             if(!isGamePlayer)
                 _level = obj.getInt("summonerLevel");
         }
@@ -235,5 +237,13 @@ public class LeagueSummoner {
     
     public SummonerSpell getSummonerSpell2() {
     	return _summonerSpell2;
+    }
+    
+    public void setLastSelectedSkin(int skin) {
+    	_lastSelectedSkin = skin;
+    }
+    
+    public int getLastSelectedSkin() {
+    	return _lastSelectedSkin;
     }
 }
