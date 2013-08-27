@@ -75,4 +75,13 @@ public enum RuneStatType {
             n += "%";
         return String.format("%s %s", n, _unit);
     }
+    
+    public boolean isFlat() {
+    	return _flat;
+    }
+    
+    public String getUnit()
+    {
+    	return _unit;
+    }
 }

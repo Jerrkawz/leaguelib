@@ -471,13 +471,19 @@ public enum Rune {
         return _statType.getDescription(count * _statAmount);
     }
     
-    public RuneType getRuneType()
-    {
+    public RuneType getRuneType() {
     	return _runeType;
     }
     
-    public int getId()
-    {
+    public int getId() {
     	return _id;
+    }
+    
+    public RuneStatType getStatType(){
+    	return _statType;
+    }
+    
+    public double getStatAmount() {
+    	return _statAmount;
     }
 }
