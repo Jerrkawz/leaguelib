@@ -68,6 +68,10 @@ public class TypedObject extends HashMap<String, Object>
         return cause.type;
     }
     
+    public Object getObject(String key) {
+    	return get(key);
+    }
+    
 	/**
 	 * Convenience for retrieving Strings
 	 * 

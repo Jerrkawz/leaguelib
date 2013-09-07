@@ -41,6 +41,7 @@ public class LeagueSummoner {
     LeagueGame _activeGame;
     SummonerSpell _summonerSpell1,_summonerSpell2;
     private int _lastSelectedSkin = 0;
+    double _teamParticipantId;
     
     public LeagueSummoner() {
         _profileInfo = new LeagueSummonerProfileInfo();
@@ -61,8 +62,10 @@ public class LeagueSummoner {
     // But when it's returned via summonerService it's called acctId
     public LeagueSummoner(TypedObject obj, LeagueServer server, boolean isGamePlayer) {
         this();
-        if(isGamePlayer)
-            _isBot = obj.type.equals("com.riotgames.platform.game.BotParticipant");
+        if(isGamePlayer) {
+        	_isBot = obj.type.equals("com.riotgames.platform.game.BotParticipant");
+        	this.setTeamParticipantId(obj.getObject("teamParticipantId"));
+        }
         _name = obj.getString(isGamePlayer ? "summonerName" : "name");
         _internalName = obj.getString(isGamePlayer ? "summonerInternalName" : "internalName");
         if(!_isBot) {
@@ -81,6 +84,13 @@ public class LeagueSummoner {
     
     public void setAccountId(int id) {
         _accountId = id;
+    }
+    
+    public void setTeamParticipantId(Object id) {
+    	if (id == null) {
+    		id = -1.0;
+    	}
+    	_teamParticipantId = (double) id;
     }
     
     public void setName(String name) {
@@ -144,6 +154,10 @@ public class LeagueSummoner {
     
     public int getAccountId() {
         return _accountId;
+    }
+    
+    public Object getTeamParticipantId() {
+    	return _teamParticipantId;
     }
     
     public String getName() {
