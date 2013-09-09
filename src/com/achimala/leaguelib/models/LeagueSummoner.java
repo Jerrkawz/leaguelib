@@ -64,7 +64,7 @@ public class LeagueSummoner {
         this();
         if(isGamePlayer) {
         	_isBot = obj.type.equals("com.riotgames.platform.game.BotParticipant");
-        	this.setTeamParticipantId(obj.getObject("teamParticipantId"));
+        	this.setTeamParticipantId(obj.getDouble("teamParticipantId"));
         }
         _name = obj.getString(isGamePlayer ? "summonerName" : "name");
         _internalName = obj.getString(isGamePlayer ? "summonerInternalName" : "internalName");
@@ -86,11 +86,11 @@ public class LeagueSummoner {
         _accountId = id;
     }
     
-    public void setTeamParticipantId(Object id) {
+    public void setTeamParticipantId(Double id) {
     	if (id == null) {
     		id = -1.0;
     	}
-    	_teamParticipantId = (double) id;
+    	_teamParticipantId = id;
     }
     
     public void setName(String name) {
@@ -156,7 +156,7 @@ public class LeagueSummoner {
         return _accountId;
     }
     
-    public Object getTeamParticipantId() {
+    public double getTeamParticipantId() {
     	return _teamParticipantId;
     }
     
