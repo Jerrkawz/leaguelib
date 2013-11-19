@@ -29,7 +29,7 @@ public class LeagueSummoner {
     private int _id=-1, _accountId=-1;
     private int _profileIconId=0, _level=0;
     private String _name, _internalName;
-    private boolean _isBot = false;
+    private boolean _isBot = false, _isRequester = false;
     LeagueServer _server;
     LeagueSummonerProfileInfo _profileInfo;
     LeagueSummonerLeagueStats _leagueStats;
@@ -144,6 +144,14 @@ public class LeagueSummoner {
         _isBot = bot;
     }
     
+    public void setIsRequester(boolean requester) {
+    	_isRequester = requester;
+    }
+    
+    public boolean isRequester() {
+    	return _isRequester;
+    }
+    
     public void setServer(LeagueServer server) {
         _server = server;
     }
@@ -157,6 +165,9 @@ public class LeagueSummoner {
     }
     
     public double getTeamParticipantId() {
+    	if (this.isRequester()) {
+    		return 69.0;
+    	}
     	return _teamParticipantId;
     }
     

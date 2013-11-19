@@ -80,8 +80,7 @@ public class MainTest {
                     public void onCompletion(LeagueSummoner summoner) {
                         lock.lock();
                         System.out.println("Profile:");
-                        System.out.println("    S1: " + summoner.getProfileInfo().getSeasonOneTier());
-                        System.out.println("    S2: " + summoner.getProfileInfo().getSeasonTwoTier());
+                        System.out.println("    Previous: " + summoner.getProfileInfo().getPreviousSeasonHighestTier());
                         System.out.println();
                         System.out.flush();
                         decrementCount();
