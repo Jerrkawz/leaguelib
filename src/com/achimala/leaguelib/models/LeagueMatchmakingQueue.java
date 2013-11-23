@@ -34,5 +34,6 @@ public enum LeagueMatchmakingQueue {
     ARAM_UNRANKED_2x2,
     ARAM_UNRANKED_3x3,
     ARAM_UNRANKED_5x5,
-    ARAM_UNRANKED_6x6
+    ARAM_UNRANKED_6x6,
+    ONEFORALL_5x5
 }
