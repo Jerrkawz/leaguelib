@@ -35,5 +35,7 @@ public enum PlayerStatSummaryType {
     AramUnranked3x3,
     AramUnranked5x5,
     AramUnranked6x6,
-    OneForAll5x5
+    OneForAll5x5,
+    FirstBlood1x1,
+    FirstBlood2x2
 }
